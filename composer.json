@@ -1,0 +1,6 @@
+{
+    "require": {
+        "ckeditor/ckeditor": "4.*",
+        "eventviva/php-image-resize": "1.6.*"
+    }
+}
