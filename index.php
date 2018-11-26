@@ -30,7 +30,7 @@
     }
     // Get all the productions in the productions table
     // run a SELECT query
-    $search_query = "SELECT ProductionId, Name, DateReleased, Country, LastUpdate, Description FROM productions WHERE LOWER(Name) OR LOWER(Description) LIKE :search ORDER BY $orderBy ASC";
+    $search_query = "SELECT ProductionId, Name, DateReleased, Country, LastUpdate, Description FROM productions WHERE LOWER(Name) LIKE :search OR LOWER(Description) LIKE :search ORDER BY $orderBy ASC";
     
     // prepare a PDOStatement object
     $statement = $db->prepare($search_query);
