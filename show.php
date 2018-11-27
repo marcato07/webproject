@@ -152,7 +152,7 @@
                             </fieldset>
                           </form>
                 <?php else: ?>
-                    <p> <i>when you log on, you can write a comment!</i> </p>  
+                    <p> <i>when you log on, you can write a comment! would you like to <a href="wd2/proj-master/proj-master/signin/sign-on">sign on</a>?</i> </p>  
                 <?php endif; ?>
 
             </ul> 
