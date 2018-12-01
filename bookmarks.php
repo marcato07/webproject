@@ -20,7 +20,7 @@
     $error = null;
 
     // Verify if data was posted => manage data in the table
-    if (isset($_POST['command']))
+    if (isset($_POST['command']) && $showPermission>0)
     {
         // Extract the data POSTed sanitizing user input
         $command = filter_input(INPUT_POST, 'command', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -115,6 +115,7 @@
 
 <?php include "templates/header.php" ?>
 <?php include "search.php";
+
     //now execute the completed query
     $success = $statement->execute();
 

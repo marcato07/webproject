@@ -15,24 +15,32 @@
     <script src="/wd2/proj-master/proj-master/vendor/ckeditor/ckeditor/ckeditor.js"></script>
 </head>
 <body>
+    <div class="w-75 p-3" style="background-color: #eee;">
     <header>
         <h1><a href="wd2/proj-master/proj-master/home">The Reviews</a></h1>
     </header>
     <div id="mainnavigation">
+
         <nav>
-            <ul class="nav nav-tabs">
-                <li><a href="wd2/proj-master/proj-master/home">Home</a></li>
-                <li><a href="wd2/proj-master/proj-master/bookmarks.php">Bookmarks</a></li>
+           <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a href="wd2/proj-master/proj-master/home" class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true" >Home</a>
+
+                <a href="wd2/proj-master/proj-master/bookmarks.php" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false" >Bookmarks</a>
                 <?php if ($showPermission == 0): ?>
-                    <li><a href="wd2/proj-master/proj-master/signin/sign-on">Sign On</a></li>
-                    <li><a href="wd2/proj-master/proj-master/signin/Register">Register</a></li>
+                
+                    <a href="wd2/proj-master/proj-master/signin/sign-on" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false" >Sign On</a>
+
+                    <a href="wd2/proj-master/proj-master/signin/Register" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false" >Register</a>
+
                 <?php else: ?>
-                    <li><a href="wd2/proj-master/proj-master/signoff">Sign Off</a></li>
-                    <?php if ($showPermission == 1): ?>
-                        <li><a href="wd2/proj-master/proj-master/manageusers">Manage Users</a></li>
-                    <?php endif; ?>
+                    <a href="wd2/proj-master/proj-master/signoff" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false" >Sign Off</a>
+                
+                <?php if ($showPermission == 1): ?>
+                    <a href="wd2/proj-master/proj-master/manageusers" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile" aria-selected="false" >Manage Users</a>
+                    
                 <?php endif; ?>
-            </ul>
+                <?php endif; ?>
+           
         </nav>
     </div>
     <div>
