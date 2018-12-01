@@ -10,7 +10,8 @@
     <base href="/">
     <meta charset="utf-8">
     <title>The Reviews</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="/wd2/proj-master/proj-master/vendor/ckeditor/ckeditor/ckeditor.js"></script>
 </head>
 <body>
