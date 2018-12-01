@@ -20,7 +20,7 @@
     $error = null;
 
     // Verify if data was posted => manage data in the table
-    if (isset($_POST['command']) && $showPermission>0)
+    if (isset($_POST['command']) )
     {
         // Extract the data POSTed sanitizing user input
         $command = filter_input(INPUT_POST, 'command', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -85,7 +85,7 @@
 
     $orderBy = 'Name';
 
-    if (isset($_GET['orderby']))
+    if (isset($_GET['orderby']) )
     {
         // Sanitize and validate the Order by parameter
         $orderBy = filter_input(INPUT_GET, 'orderby', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -93,6 +93,8 @@
 
     // Get the production associated with the logged user
     // run a SELECT query
+    if( $showPermission>0)
+    {
     $search_query = "SELECT Name, LastUpdate, LastSeasonWatched, LastEpisodeWatched, productions.ProductionId
               FROM productions INNER JOIN usersproductions
               ON productions.ProductionId = usersproductions.ProductionId
@@ -111,17 +113,18 @@
     //$success = $statement->execute();
     // Fetch the result in a local variable
     //$search_results = $statement->fetchAll();
+    }
 ?>
 
 <?php include "templates/header.php" ?>
 <?php include "search.php";
+    if( $showPermission>0)
+    {//now execute the completed query
+        $success = $statement->execute();
 
-    //now execute the completed query
-    $success = $statement->execute();
-
-    // Fetch the result in a local variable
-    $search_results = $statement->fetchAll();
-        
+        // Fetch the result in a local variable
+        $search_results = $statement->fetchAll();
+    }
  ?>
     <section>
         <?php if ($error != null): ?>
