@@ -46,6 +46,6 @@
     <div id="searching_form">
         <form method="post" action=""  >
             <input type="text" name="name">
-            <input type="submit" name="submit" value="Search" />
+            <input class="btn btn-info" type="submit" name="submit" value="Search" />
         </form>
     </div>

@@ -52,7 +52,7 @@
                 <option value="Drama">Drama</option>
                 <option value="Family">Family</option>
             </select>
-        <input type="submit" name="submit" value="Sorting" />
+        <input class="btn btn-info" type="submit" name="submit" value="Sorting" />
         </form>
     </div>
 </li>
