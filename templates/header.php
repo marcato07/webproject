@@ -10,6 +10,7 @@
     <base href="/">
     <meta charset="utf-8">
     <title>The Reviews</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="/wd2/proj-master/proj-master/vendor/ckeditor/ckeditor/ckeditor.js"></script>
 </head>
 <body>

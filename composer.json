@@ -1,6 +1,7 @@
 {
     "require": {
         "ckeditor/ckeditor": "4.*",
-        "eventviva/php-image-resize": "1.6.*"
+        "eventviva/php-image-resize": "1.6.*",
+        "twbs/bootstrap": "^4.1"
     }
 }
