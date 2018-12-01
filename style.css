@@ -1,0 +1,80 @@
+html{
+    font-family: Arial, Verdana, sans-serif;
+}
+
+#wrapper {
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1em;
+    border: 1px solid gray;
+}
+
+header {
+    border-bottom: 1px dashed gray;
+	margin-bottom: 1em;
+}
+
+header h1 {
+    margin-top: 0.5em;
+	margin-bottom: 0;
+}
+
+header h2 {
+	margin-top: 0.1em;
+}
+
+#content {
+    float: left;
+    width: 650px;
+}
+
+#content h2 {
+    font-family: Arial, sans-serif;
+	font-size: 1.2em;
+    margin-top: 1em;
+}
+
+#content p {
+    margin: 1em;
+}
+
+footer {
+    border-top: 1px dashed gray;
+    clear: both;
+    text-align: center;
+}
+
+footer p {
+    margin-bottom: 1em;
+}
+
+img {
+    padding: 10px;
+    margin: 0 10px 10px 0;
+    border: 1px solid gray;
+}
+
+#content ul {
+    list-style: none;
+    margin: 0 0 1em 0;
+	padding: 0;
+}
+
+#content ul li {
+	padding: 1em;
+	border: 2px solid #eeeeee;
+}
+
+.zebra_background {
+    background-color: #eeeeee;
+}
+
+blockquote {
+    margin: 0 0 1em 0;
+    font-style: italic;
+}
+
+input#search_text {
+    width: 220px;
+}
