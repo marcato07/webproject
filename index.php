@@ -97,6 +97,7 @@
     <section>
         <?php if ($showPermission == 1): ?>
             <p><a href="wd2/proj-master/proj-master/create_production.php">Add New Production</a></p>
+            <p><a href="wd2/proj-master/proj-master/category.php">Add New Category</a></p>
         <?php endif ?>
         <table class="table">
             <thead>

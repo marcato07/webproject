@@ -14,6 +14,16 @@
 
     // Get the permission level
     $showPermission = getPermission();
+
+
+    $query ="SELECT genre
+            FROM category";
+    // prepare a PDOStatement object
+    $statements = $db->prepare($query);
+    // The query is now executed.
+    $success = $statements->execute();
+    $categories= $statements->fetchAll();
+
 ?>
 
 
@@ -31,6 +41,15 @@
                         <li>
                             <label for="country">Country</label>
                             <input id="country" name="country" type="text">
+                        </li>
+                        <li>
+                            <label for="genre">genre</label>
+                            <select id="genre" name="genre">
+                            <?php foreach ($categories as $item): ?>
+                                <option value="<?=$item['genre']?>"> <?=$item['genre']?> </option>
+                            <?php endforeach; ?>
+                            </select>
+
                         </li>
                         <li>
                             <label for="datereleased">Date Released</label>

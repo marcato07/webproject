@@ -29,6 +29,7 @@
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $country = filter_input(INPUT_POST, 'country', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $genre= filter_input(INPUT_POST,'genre',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $releasedDate = $_POST['datereleased'];
 
     if (strlen($name) < 1 || strlen($country) < 1 || strlen($description) < 1)
@@ -50,7 +51,7 @@
         if ($command == "Create")
         {
             // Insert the new post in the database
-            $query = "INSERT INTO productions (Name, DateReleased, Country, Description) values (:name, :releasedDate, :country, :description)";
+            $query = "INSERT INTO productions (Name, DateReleased, Country, Description, genre) values (:name, :releasedDate, :country, :description, :genre)";
 
             // how can I get a id here?    
             //$id="SELECT ProductionId FROM productions WHERE DateReleased=:releasedDate";
@@ -90,11 +91,12 @@
         $statement->bindValue(':releasedDate', $releasedDate);
         $statement->bindValue(':country', $country);
         $statement->bindValue(':description', $description);
+        $statement->bindValue(':genre', $genre);
 
         $statement->execute();
 
         // Redirect user to another page
-       header('Location: /wd2/proj-master/proj-master/index.php');
+       header('Location: /wd2/proj-master/proj-master/home');
         exit;
     }
 ?>
