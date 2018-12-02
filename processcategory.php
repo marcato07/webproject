@@ -8,7 +8,6 @@
 
     // Connect to database
    // require 'include/connect.php';
-    $command = filter_input(INPUT_POST, 'command', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     // start session
     session_start();
 
@@ -27,6 +26,7 @@
     // Extract the data POSTed sanitizing user input
 
     $genre= filter_input(INPUT_POST,'genre',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $command = filter_input(INPUT_POST, 'command', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     if (strlen($genre) < 1)
     {
@@ -41,8 +41,35 @@
         if ($command == "Create")
         {
             // Insert the new post in the database
-             echo $genre;
             $query = "INSERT INTO category (genre) values (:genre)";
+        }
+
+        elseif ($command == "Update")
+        {
+            // Sanitize and validate the ID
+            if (filter_var($genre, FILTER_VALIDATE_INT) == false)
+            {
+                // Redirect user to another page
+                header('Location: wd2/proj-master/proj-master/index.php');
+                exit;
+            }
+
+            // Update the production in the database
+            
+           // $query = "UPDATE category SET genre = :genre, DateReleased = :releasedDate, Country = :country, Description = :description, genre=:genre WHERE ProductionId = $id";
+        }
+        elseif ($command == "Delete")
+        {
+            // Sanitize and validate the ID
+            if (filter_var($genre, FILTER_VALIDATE_INT) == false)
+            {
+                // Redirect user to another page
+                header('Location: wd2/proj-master/proj-master/index.php');
+                exit;
+            }
+
+            // Delete the production from the database
+            $query = "DELETE FROM category WHERE genre = $genre";
         }
 
         $statement = $db->prepare($query);
@@ -50,8 +77,8 @@
         $statement->execute();
 
         // Redirect user to another page
-       //header('Location: /wd2/proj-master/proj-master/home');
-       // exit;
+        header('Location: /wd2/proj-master/proj-master/home');
+        exit;
     }
 
 ?>
