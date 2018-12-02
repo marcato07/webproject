@@ -13,7 +13,7 @@
 	//$make = '';
 	$search_url='';
 	$search_query = strtolower(filter_input(INPUT_POST, 'name'));
-	if(isset($_POST['name'])){
+	if(isset($_POST['name']) ){
 		//$make = '<h4>No match found!</h4>';
 		//$sele = "SELECT * FROM $search_table WHERE $search_column LIKE '%$name%' ORDER BY $orderBy";
             // prepare a PDOStatement object
@@ -43,6 +43,7 @@
 		   // $search_url = "/search/$search_query";
 	}
 ?>
+
     <div id="searching_form">
         <form method="post" action=""  >
             <input type="text" name="name">
