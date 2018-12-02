@@ -26,7 +26,7 @@
 
     // Get the production passed by GET parameter
     // run a SELECT query
-    $query = "SELECT Name, DateReleased, Country, LastUpdate, Description, Image FROM productions WHERE ProductionId = $id";
+    $query = "SELECT Name, DateReleased, Country, LastUpdate, Description, Image, genre FROM productions WHERE ProductionId = $id";
 
     // prepare a PDOStatement object
     $statement = $db->prepare($query);
@@ -38,6 +38,14 @@
     $prod = $statement->fetch();
 
     $dateReleased = date("Y-m-d", strtotime($prod['DateReleased']));
+
+     $query ="SELECT genre
+            FROM category";
+    // prepare a PDOStatement object
+    $statements = $db->prepare($query);
+    // The query is now executed.
+    $success = $statements->execute();
+    $categories= $statements->fetchAll();
 ?>
 
 <?php include ("templates/header.php") ?>
@@ -54,6 +62,12 @@
                         <label for="country">Country</label>
                         <input id="country" name="country" type="text" value="<?= $prod['Country'] ?>">
                     </p>
+                            <label for="genre">genre</label>
+                            <select id="genre" name="genre">
+                            <?php foreach ($categories as $item): ?>
+                                <option value="<?=$item['genre']?>"> <?=$item['genre']?> </option>
+                            <?php endforeach; ?>
+                            </select>
                     <p>
                         <label for="datereleased">Date Released</label>
                         <input id="datereleased" name="datereleased" type="date" value="<?= $dateReleased ?>">

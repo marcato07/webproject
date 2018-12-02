@@ -44,7 +44,7 @@
         $error = true;
     }
 
-    if ($error == false)
+    if ($error == false && ($command == "Create" || $command == "Update" || $command == "Delete") )
     {
         require 'include/connect.php';
 
@@ -69,7 +69,7 @@
             }
 
             // Update the production in the database
-            $query = "UPDATE productions SET Name = :name, DateReleased = :releasedDate, Country = :country, Description = :description WHERE ProductionId = $id";
+            $query = "UPDATE productions SET Name = :name, DateReleased = :releasedDate, Country = :country, Description = :description, genre=:genre WHERE ProductionId = $id";
         }
         elseif ($command == "Delete")
         {
@@ -99,6 +99,7 @@
        header('Location: /wd2/proj-master/proj-master/home');
         exit;
     }
+
 ?>
 
 <?php include ("templates/header.php") ?>
