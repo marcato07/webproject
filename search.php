@@ -46,6 +46,14 @@
 
     <div id="searching_form">
         <form method="post" action=""  >
+        	<label for="sorting">sorting</label>
+            <select id="sorting" name="sorting">
+                <option value="">All</option>
+                <option value="Animation">Animation</option>
+                <option value="Drama">Drama</option>
+                <option value="Family">Family</option>
+            </select>
+
             <input type="text" name="name">
             <input class="btn btn-info" type="submit" name="submit" value="Search" />
         </form>

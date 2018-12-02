@@ -38,12 +38,12 @@
     $statement-> bindParam(':search', $default_search);
     //$statement-> bindParam(':orderBy', $orderBy);
 
-    if(isset($_GET['sorting']))
+    if(!empty($_POST['sorting']))
     {
-    	$value = $_GET['sorting'];
+    	$value = $_POST['sorting'];
     	echo $value;
-    }
-    //the statement is not executed until after the Search takes place
+
+    	//the statement is not executed until after the Search takes place
     $query ="SELECT genre
             FROM category WHERE genre LIKE %$value% ORDER BY genre";
     // prepare a PDOStatement object
@@ -51,11 +51,13 @@
     // The query is now executed.
     $success = $statement->execute();
     $category= $statement->fetchAll();
+    }
+    
 
 ?>
 
 <?php include "templates/header.php" ?>
-<li>
+<!-- <li>
     <div id="sorting_form">
         <form method="get" action="">
         <label for="sorting">sorting</label>
@@ -68,7 +70,7 @@
         <input class="btn btn-info" type="submit" name="submit" value="sorting" />
         </form>
     </div>
-</li>
+</li> -->
 
 <?php include "search.php";
     //now execute the completed query
