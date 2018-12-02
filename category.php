@@ -29,24 +29,24 @@
 <?php include ("templates/header.php") ?>
     <section>
         <?php if ($showPermission == 1): ?>
+
             <form action="wd2/proj-master/proj-master/processcategory.php" method="post">
                 <fieldset>
                     <legend>New Category</legend>
+
+
                         <li>
                             <label for="cgenre">Current genre</label>
-                            <select id="cgenre" name="cgenre">
+                            
                             <?php foreach ($categories as $item): ?>
-                                <option value="<?=$item['genre']?>"> <?=$item['genre']?> </option>
+                                <li><?=$item['genre']?> </li>
                             <?php endforeach; ?>
-                            </select>
+                            
                         </li>
 
                         <li>
-                            <label for="genre">Name</label>
+                            <label for="genre">Add New Genre</label>
                             <input id="genre" name="genre" type="text">
-                        </li>
-                        
-                         <li>
                             <input name="command" value="Create" type="submit">
                         </li>
                     </form>
