@@ -8,7 +8,7 @@
 
     // Connect to database
    // require 'include/connect.php';
-
+    $command = filter_input(INPUT_POST, 'command', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     // start session
     session_start();
 
