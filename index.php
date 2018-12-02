@@ -19,6 +19,8 @@
     // Sanitize and validate the Order by parameter
     $orderBy = filter_input(INPUT_GET, 'orderby', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $default_search='%';
+
+
     if (!$orderBy)
     {
         $orderBy = 'Name';
@@ -31,28 +33,38 @@
     }
     // Get all the productions in the productions table
     // run a SELECT query
-    $search_query = "SELECT ProductionId, Name, DateReleased, Country, LastUpdate, Description, genre FROM productions WHERE LOWER(Name) LIKE :search OR LOWER(Description) LIKE :search ORDER BY $orderBy ASC";
+    
+
+    if(!empty($_POST['sorting']))
+    {
+    	$val = '%'.$_POST['sorting'].'%';
+    	echo $val;
+
+    	//the statement is not executed until after the Search takes place
+   
+    }
+    else if(empty($_POST['sorting']))
+    {
+    	$val = '%';
+    }
+
+    
+    $search_query = "SELECT ProductionId, Name, DateReleased, Country, LastUpdate, Description, genre FROM productions WHERE LOWER(Name) LIKE :search AND genre LIKE :val OR LOWER(Description) LIKE :search AND genre LIKE :val ORDER BY $orderBy ASC";
     
     // prepare a PDOStatement object
     $statement = $db->prepare($search_query);
     $statement-> bindParam(':search', $default_search);
+    $statement-> bindParam(':val', $val);
     //$statement-> bindParam(':orderBy', $orderBy);
 
-    if(!empty($_POST['sorting']))
-    {
-    	$value = $_POST['sorting'];
-    	echo $value;
-
-    	//the statement is not executed until after the Search takes place
     $query ="SELECT genre
-            FROM category WHERE genre LIKE %$value% ORDER BY genre";
+            FROM category";
     // prepare a PDOStatement object
-    $statement = $db->prepare($query);
+    $statements = $db->prepare($query);
     // The query is now executed.
-    $success = $statement->execute();
-    $category= $statement->fetchAll();
-    }
-    
+    $success = $statements->execute();
+    $categories= $statements->fetchAll();
+
 
 ?>
 

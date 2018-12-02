@@ -46,12 +46,14 @@
 
     <div id="searching_form">
         <form method="post" action=""  >
-        	<label for="sorting">sorting</label>
+        	<!-- <label for="sorting">sorting</label> -->
             <select id="sorting" name="sorting">
                 <option value="">All</option>
-                <option value="Animation">Animation</option>
-                <option value="Drama">Drama</option>
-                <option value="Family">Family</option>
+                
+                <?php foreach ($categories as $category): ?>
+                	<option value="<?=$category['genre']?>"> <?=$category['genre']?> </option>
+	            <?php endforeach; ?>
+
             </select>
 
             <input type="text" name="name">
