@@ -36,7 +36,7 @@
                     <a href="project/signin/Register" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Register</a>
 
                 <?php else: ?>
-                    <a href="signoff" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Sign Off</a>
+                    <a href="project/signoff.php" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Sign Off</a>
                 
                 <?php if ($showPermission == 1): ?>
                     <a href="project/manageusers" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Manage Users</a>

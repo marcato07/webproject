@@ -28,7 +28,7 @@
 
     // Get the production passed by GET parameter
     // run a SELECT query
-    $query = "SELECT Name, DateReleased, Country, LastUpdate, Description, Image, ProductionId
+    $query = "SELECT Name, DateReleased, Country, LastUpdate, Description, Image, ProductionId, genre
               FROM productions
               WHERE ProductionId = $id";
     // prepare a PDOStatement object
@@ -88,6 +88,7 @@
         <p>Country: <?= $prod['Country'] ?></p>
         <p>Date Released: <?= date("F j, Y", strtotime($prod['DateReleased'])) ?></p>
         <p>Update on: <?= date("F j, Y", strtotime($prod['LastUpdate'])) ?></p>
+        <p>Category: <?=$prod['genre']?> </p>
         <div>
             <h5>Description:</h5>
             <p><?= html_entity_decode($prod['Description']) ?></p>

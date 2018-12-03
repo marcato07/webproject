@@ -13,7 +13,6 @@ RewriteRule   ^bookmarks/?$                                 bookmarks.php       
 RewriteRule   ^bookmarks/([^/]+)/?$                         bookmarks.php?orderby=$1                        [NC,L]
 RewriteRule   ^signin/([^/]+)/?$                            signin.php?type=$1                              [NC,L]
 RewriteRule   ^authenticate/?$                              authenticate.php                                [NC,L]
-RewriteRule   ^signoff/?$                                   signoff.php                                     [NC,L]
 RewriteRule   ^manageusers/?$                               manageusers.php                                 [NC,L]
 RewriteRule   ^manageusers/([^/]+)/?$                       manageusers.php?orderby=$1                      [NC,L]
 RewriteRule   ^edituser/([^/]+)/([^/]+)/?$                  edituser.php?id=$1&title=$2                     [NC,L]

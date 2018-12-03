@@ -70,4 +70,4 @@
             </fieldset>
         </form>
     </section>
-
+</div>

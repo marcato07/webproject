@@ -12,6 +12,6 @@
     session_destroy();
 
     // Redirect user to another page
-    header('Location: project/index.php');
+    header('Location: /project/index.php');
     exit;
 ?>

@@ -69,4 +69,5 @@
             <p>You do not have enough permission.</p>
         <?php endif; ?>
     </section>
+</div>
 <?php include "templates/footer.php" ?>
