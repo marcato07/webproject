@@ -35,13 +35,12 @@
                     <legend>New Category</legend>
 
 
-                        <li>
+                        
                             <label for="cgenre">Current genre</label>
                             
                             <?php foreach ($categories as $item): ?>
                             <form action="project/processcategory.php" method="post">
                                 <input name="title" id="title" value="<?=$item['genre']?>"/>
-                                <?=$item['categoryid']?>
                                 <input type="hidden" name="genre" value="<?=$item['genre']?>"> 
                                 <input type="hidden" name="categoryid" value="<?=$item['categoryid']?>"> 
                                 <input type="submit" name="command" value="Edit" onclick="return confirm('Are you sure you wish to Edit this category?')" />      
@@ -49,14 +48,14 @@
                             </form>
                             <?php endforeach; ?>
                             
-                        </li>
+                        
 
-                        <li>
+                        
                             <form action="project/processcategory.php" method="post">
                             <label for="genre">Add New Genre</label>
                             <input id="genre" name="genre" type="text">
                             <input name="command" value="Create" type="submit">
-                        </li>
+                        
                     </form>
         <?php else: ?>
             <p>You do not have enough permission.</p>

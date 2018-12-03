@@ -40,7 +40,7 @@
 <?php include ("templates/header.php") ?>
     <section>
         <?php if ($showPermission != 0): ?>
-            <form action="authenticate" method="post">
+            <form action="authenticate.php" method="post">
                 <fieldset>
                     <legend>Edit User</legend>
                     <p>

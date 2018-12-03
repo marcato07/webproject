@@ -93,13 +93,27 @@
 
     // Get the production associated with the logged user
     // run a SELECT query
+    if(!empty($_POST['sorting']))
+    {
+        $val = '%'.$_POST['sorting'].'%';
+
+        //the statement is not executed until after the Search takes place
+   
+    }
+    else if(empty($_POST['sorting']))
+    {
+        $val = '%';
+    }
+
+
     if( $showPermission>0)
     {
-    $search_query = "SELECT Name, LastUpdate, LastSeasonWatched, LastEpisodeWatched, productions.ProductionId
+    $search_query = "SELECT Name, LastUpdate, LastSeasonWatched, LastEpisodeWatched, genre, productions.ProductionId
               FROM productions INNER JOIN usersproductions
               ON productions.ProductionId = usersproductions.ProductionId
               WHERE UserId = :UserId
               AND LOWER(Name) LIKE :search
+              AND genre LIKE :val
               ORDER BY $orderBy";
 
               
@@ -108,12 +122,27 @@
     $statement = $db->prepare($search_query);
     $statement->bindValue(':UserId', $_SESSION['UserId']);
     $statement->bindValue(':search', $default_search);
+    $statement-> bindParam(':val', $val);
+
+
     //$statement->bindValue(':orderBy', $orderBy);
     // The query is now executed.
     //$success = $statement->execute();
     // Fetch the result in a local variable
     //$search_results = $statement->fetchAll();
     }
+
+
+    $query ="SELECT genre
+            FROM category";
+    // prepare a PDOStatement object
+    $statements = $db->prepare($query);
+    // The query is now executed.
+    $success = $statements->execute();
+    $categories= $statements->fetchAll();
+
+
+
 ?>
 
 <?php include "templates/header.php" ?>
@@ -142,23 +171,23 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- <?php if($make): ?>
-                        <p><?=$make?></p>
-                    <?php endif ?> -->
                     <?php foreach ($search_results as $bookmark): ?>
-                        <form action="/project/bookmarks" method="post">
+                        
                             <tr>
                                 <td><a href="/project/show/<?= $bookmark['ProductionId'] ?>/<?= $bookmark['Name'] ?>"><?= $bookmark['Name'] ?></a></td>
                                 <td><?= date("F j, Y", strtotime($bookmark['LastUpdate'])) ?></td>
+                                <!-- <form action="/project/bookmarks.php" method="post"> -->
                                 <td><input name="lastSeasonWatched" value="<?=$bookmark['LastSeasonWatched']?>" type="number"></td>
                                 <td><input name="lastEpisodeWatched" value="<?=$bookmark['LastEpisodeWatched']?>" type="number"></td>
                                 <td>
                                     <input name="id" value="<?=$bookmark['ProductionId']?>" type="hidden">
                                     <input name="command" value="Update" type="submit">
                                     <input name="command" value="Delete" type="submit" onclick="return confirm('Are you sure you wish to delete this bookmark?')">
+                                      
                                 </td>
+                                <!-- </form> -->
+
                             </tr>
-                        </form>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -166,3 +195,4 @@
             <p>You need to be logged to see your bookmarked series.</p>
         <?php endif; ?>
     </section>
+</div>

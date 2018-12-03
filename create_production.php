@@ -42,7 +42,7 @@
                                 <option value="<?=$item['genre']?>"> <?=$item['genre']?> </option> 
                             <?php endforeach; ?>
                             </select>
-                            Add Genre
+                            <a href="project/category.php">Add New Category</a>
                         </li>
                         <li>
                             <label for="datereleased">Date Released</label>

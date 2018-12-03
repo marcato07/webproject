@@ -54,8 +54,8 @@
             if (filter_var($genre, FILTER_SANITIZE_FULL_SPECIAL_CHARS) == false)
             {
                 // Redirect user to another page
-               // header('Location: project/index.php');
-                //exit;
+               header('Location: project/index.php');
+                exit;
             }
 
             // Update the production in the database
@@ -70,8 +70,8 @@
             if (filter_var($genre, FILTER_SANITIZE_FULL_SPECIAL_CHARS) == false)
             {
                 // Redirect user to another page
-                //header('Location: project/index.php');
-                //exit;
+                header('Location: project/index.php');
+                exit;
             }
 
             // Delete the production from the database
@@ -85,8 +85,8 @@
         $statement->execute();
 
         // Redirect user to another page
-        //header('Location: /project/category.php');
-        //exit;
+        header('Location: /project/category.php');
+        exit;
     }
 
 ?>

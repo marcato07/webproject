@@ -13,7 +13,7 @@
     if (filter_var($id, FILTER_VALIDATE_INT) == false)
     {
         // Redirect user to another page
-        header('Location: project/home');
+        header('Location: /project/home');
     }
 
     // Sanitize and validate the inputs
@@ -26,7 +26,7 @@
     $statement->bindValue(':image', NULL);
     $statement->execute();
 
-    $filePath = 'C:\xampp\htdocs\wd2\proj-master\proj-master\uploads' . $image;
+    $filePath = 'C:\xampp\htdocs\project\uploads' . $image;
     unlink($filePath);
 
     // Redirect user to another page

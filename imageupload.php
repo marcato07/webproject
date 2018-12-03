@@ -94,7 +94,7 @@
 
             // Redirect user
             // Redirect user to another page
-            header('Location: /project/homeshow/'.$id.'/'.$title);
+            header('Location: /project/home/show/'.$id.'/'.$title);
 
             // Exit the script normally
             exit(0);
@@ -110,7 +110,7 @@
     if (filter_var($id, FILTER_VALIDATE_INT) == false)
     {
         // Redirect user to another page
-         header('Location: /project/homeindex.php');
+         header('Location: /project/home/index.php');
     }
 
     // Sanitize and validate the title

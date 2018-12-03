@@ -72,12 +72,12 @@
 <?php include ("templates/header.php") ?>
     <section>
         <?php if ($showPermission == 1): ?>
-            <nav>
-                <ul class="nav nav-tabs">
-                    <li><a href="project/edit/<?= $id ?>/<?= $prod['Name'] ?>">Edit</a></li>
-                    <li><a href="project/imageupload/<?= $id ?>/<?= $prod['Name'] ?>">Image Upload</a></li>
-                    <li><a href="project/image_delete_process/<?= $id ?>/<?= $prod['Image'] ?>" onclick="return confirm('Are you sure you wish to delete the image?')">Delete Image</a></li>
-                    <li><a href="project/delete_process/<?= $id ?>" onclick="return confirm('Are you sure you wish to delete the production?')">Delete Contents</a></li>
+            <nav class="nav">
+                <ul>
+                    <li><a class="nav-link active" href="project/edit/<?= $id ?>/<?= $prod['Name'] ?>">Edit</a></li>
+                    <li><a class="nav-link active" href="project/imageupload/<?= $id ?>/<?= $prod['Name'] ?>">Image Upload</a></li>
+                    <li><a class="nav-link active" href="project/image_delete_process/<?= $id ?>/<?= $prod['Image'] ?>" onclick="return confirm('Are you sure you wish to delete the image?')">Delete Image</a></li>
+                    <li><a class="nav-link active" href="project/delete_process/<?= $id ?>" onclick="return confirm('Are you sure you wish to delete the production?')">Delete Contents</a></li>
                 </ul>
             </nav>
         <?php endif; ?>
@@ -123,12 +123,12 @@
                         <input type="hidden" name="UserId" value="<?= $_SESSION['UserId']?>">
 
                             <?php if($comment['type'] == 2): ?>
-                                 <input type="submit" name="command" value="Public" onclick="return confirm('Are you sure you wish to public this comment?')" />      
+                                 <input class="btn btn-secondary btn-sm" type="submit" name="command" value="Public" onclick="return confirm('Are you sure you wish to public this comment?')" />      
                             <?php elseif($comment['type'] != 2): ?> 
-                                <input type="submit" name="command" value="Hide" onclick="return confirm('Are you sure you wish to hide this comment?')" />  
+                                <input class="btn btn-secondary btn-sm" type="submit" name="command" value="Hide" onclick="return confirm('Are you sure you wish to hide this comment?')" />  
                             <?php endif; ?>
 
-                        <input type="submit" name="command" value="Delete" onclick="return confirm('Are you sure you wish to delete this comment?')" />                   
+                        <input class="btn btn-secondary btn-sm" type="submit" name="command" value="Delete" onclick="return confirm('Are you sure you wish to delete this comment?')" />                   
                         </form>
 
                           <?php endif;?>

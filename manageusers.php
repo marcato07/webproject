@@ -40,23 +40,23 @@
 <?php include ("templates/header.php") ?>
     <section>
         <?php if ($showPermission == 1): ?>
-            <p><a href=project/signin/Register">Add New User</a></p>
+            <p><a href="project/signin/Register">Add New User</a></p>
         <?php endif; ?>
         <?php if ($showPermission == 1): ?>
             <table class="table">
                 <thead>
                     <tr>
                         <th><a href="project/manageusers/Username">Username</a></th>
-                        <th><a href=project/manageusers/FirstName">First Name</a></th>
-                        <th><a href=project/manageusers/LastName">Last Name</a></th>
-                        <th><a href=project/manageusers/DateCreated">Date Created</a></th>
-                        <th><a href=project/manageusers/PermissionType">Permission Type</a></th>
+                        <th><a href="project/manageusers/FirstName">First Name</a></th>
+                        <th><a href="project/manageusers/LastName">Last Name</a></th>
+                        <th><a href="project/manageusers/DateCreated">Date Created</a></th>
+                        <th><a href="project/manageusers/PermissionType">Permission Type</a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($users as $user): ?>
                         <tr>
-                            <td><a href="edituser/<?= $user['UserId'] ?>/<?= $user['Username'] ?>"><?= $user['Username'] ?></a></td>
+                            <td><a href="project/edituser/<?= $user['UserId'] ?>/<?= $user['Username'] ?>"><?= $user['Username'] ?></a></td>
                             <td><?= $user['FirstName'] ?></td>
                             <td><?= $user['LastName'] ?></td>
                             <td><?= date("F j, Y", strtotime($user['DateCreated'])) ?></td>

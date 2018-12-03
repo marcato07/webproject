@@ -14,7 +14,7 @@
     if (filter_var($id, FILTER_VALIDATE_INT) == false)
     {
         // Redirect user to another page
-        header('Location: project/index.php');
+        header('Location: /project/index.php');
         exit;
     }
 
@@ -30,6 +30,6 @@
 
 
     // Redirect user to another page
-    header('Location: project/index.php');
+    header('Location: /project/index.php');
     exit;
 ?>

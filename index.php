@@ -38,7 +38,6 @@
     if(!empty($_POST['sorting']))
     {
     	$val = '%'.$_POST['sorting'].'%';
-    	echo $val;
 
     	//the statement is not executed until after the Search takes place
    
@@ -79,8 +78,7 @@
 
         
  ?>
-
-    <section>
+<section>
         <?php if ($showPermission == 1): ?>
             <p><a href="project/create_production.php">Add New Production</a></p>
             <p><a href="project/category.php">Add New Category</a></p>
@@ -110,6 +108,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
-    </section>
+        </section>
+     </div>   
 

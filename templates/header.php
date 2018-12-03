@@ -17,7 +17,7 @@
 <body>
 
     <div class="w-75 p-3 container" style="background-color: #eee;">
-
+    
     <header>
         <h1><a href="project/home">The Reviews</a></h1>
     </header>
@@ -36,7 +36,7 @@
                     <a href="project/signin/Register" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Register</a>
 
                 <?php else: ?>
-                    <a href="project/signoff" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Sign Off</a>
+                    <a href="signoff" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Sign Off</a>
                 
                 <?php if ($showPermission == 1): ?>
                     <a href="project/manageusers" class="nav-item nav-link"  data-toggle="tab" role="tab"  aria-selected="true" >Manage Users</a>
@@ -45,7 +45,8 @@
                 <?php endif; ?>
         </div>
     </nav>
- </div>          
+ </div> 
+
     <div>
         <?php if ($showPermission > 0): ?>
             <div>You are logged as <?= $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] ?></div>
