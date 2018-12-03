@@ -44,10 +44,10 @@
             $query = "INSERT INTO category (genre) values (:genre)";
         }
 
-        elseif ($command == "Update")
+        elseif ($command == "Edit")
         {
             // Sanitize and validate the ID
-            if (filter_var($genre, FILTER_VALIDATE_INT) == false)
+            if (filter_var($genre, FILTER_SANITIZE_FULL_SPECIAL_CHARS) == false)
             {
                 // Redirect user to another page
                 header('Location: wd2/proj-master/proj-master/index.php');
@@ -55,17 +55,17 @@
             }
 
             // Update the production in the database
-            
+
            // $query = "UPDATE category SET genre = :genre, DateReleased = :releasedDate, Country = :country, Description = :description, genre=:genre WHERE ProductionId = $id";
         }
         elseif ($command == "Delete")
         {
             // Sanitize and validate the ID
-            if (filter_var($genre, FILTER_VALIDATE_INT) == false)
+            if (filter_var($genre, FILTER_SANITIZE_FULL_SPECIAL_CHARS) == false)
             {
                 // Redirect user to another page
-                header('Location: wd2/proj-master/proj-master/index.php');
-                exit;
+                //header('Location: wd2/proj-master/proj-master/index.php');
+                //exit;
             }
 
             // Delete the production from the database
@@ -77,8 +77,8 @@
         $statement->execute();
 
         // Redirect user to another page
-        header('Location: /wd2/proj-master/proj-master/home');
-        exit;
+        //header('Location: /wd2/proj-master/proj-master/category.php');
+        //exit;
     }
 
 ?>

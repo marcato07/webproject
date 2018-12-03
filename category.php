@@ -40,6 +40,8 @@
                             
                             <?php foreach ($categories as $item): ?>
                                 <li><?=$item['genre']?> </li>
+                                <input type="submit" name="command" value="Edit" onclick="return confirm('Are you sure you wish to Edit this category?')" />      
+                                <input type="submit" name="command" value="Delete" onclick="return confirm('Are you sure you wish to Delete this category?')" />  
                             <?php endforeach; ?>
                             
                         </li>

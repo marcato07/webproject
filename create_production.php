@@ -47,6 +47,10 @@
                             <select id="genre" name="genre">
                             <?php foreach ($categories as $item): ?>
                                 <option value="<?=$item['genre']?>"> <?=$item['genre']?> </option>
+                                <form action="wd2/proj-master/proj-master/process.php" method="post">
+                                     <input type="submit" name="command" value="Edit" onclick="return confirm('Are you sure you wish to Edit this category?')" />      
+                                    <input type="submit" name="command" value="Delete" onclick="return confirm('Are you sure you wish to Delete this category?')" />  
+                                 </form>   
                             <?php endforeach; ?>
                             </select>
 
