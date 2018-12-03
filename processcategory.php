@@ -69,16 +69,18 @@
             }
 
             // Delete the production from the database
-            $query = "DELETE FROM category WHERE genre = $genre";
+            echo $genre;
+            $query = "DELETE FROM category WHERE genre = '$genre'";
         }
 
         $statement = $db->prepare($query);
         $statement->bindValue(':genre', $genre);
+
         $statement->execute();
 
         // Redirect user to another page
-        //header('Location: /wd2/proj-master/proj-master/category.php');
-        //exit;
+        header('Location: /wd2/proj-master/proj-master/category.php');
+        exit;
     }
 
 ?>
@@ -87,5 +89,7 @@
     <section>
         <h1>An error occured while processing your post.</h1>
         <p>Category name has to be 1 more character.</p>
-    </section>
+
+        <?=$genre?>
+            </section>
 <?php include "templates/footer.php" ?>

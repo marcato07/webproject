@@ -30,7 +30,7 @@
     <section>
         <?php if ($showPermission == 1): ?>
 
-            <form action="wd2/proj-master/proj-master/processcategory.php" method="post">
+            
                 <fieldset>
                     <legend>New Category</legend>
 
@@ -39,14 +39,18 @@
                             <label for="cgenre">Current genre</label>
                             
                             <?php foreach ($categories as $item): ?>
-                                <li><?=$item['genre']?> </li>
+                            <form action="wd2/proj-master/proj-master/processcategory.php" method="post">
+                                <input name="title" id="title" value="<?=$item['genre']?>"/>
+                                <input type="hidden" name="genre" value="<?=$item['genre']?>"> 
                                 <input type="submit" name="command" value="Edit" onclick="return confirm('Are you sure you wish to Edit this category?')" />      
                                 <input type="submit" name="command" value="Delete" onclick="return confirm('Are you sure you wish to Delete this category?')" />  
+                            </form>
                             <?php endforeach; ?>
                             
                         </li>
 
                         <li>
+                            <form action="wd2/proj-master/proj-master/processcategory.php" method="post">
                             <label for="genre">Add New Genre</label>
                             <input id="genre" name="genre" type="text">
                             <input name="command" value="Create" type="submit">
