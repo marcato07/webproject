@@ -12,6 +12,6 @@
     session_destroy();
 
     // Redirect user to another page
-    header('Location: http://localhost:31337/wd2/proj-master/proj-master/index.php');
+    header('Location: project/index.php');
     exit;
 ?>

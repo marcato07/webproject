@@ -46,7 +46,7 @@
             $statement->execute();
 
             // Redirect user to another page
-            header('Location:/wd2/proj-master/proj-master/show/' . $id . '/' . $title);
+            header('Location:/project/show/' . $id . '/' . $title);
             exit;
         }
     }
@@ -59,7 +59,7 @@
         if ($id == null || $nextseason == null)
         {
             // Redirect user to another page
-            header('Location: wd2/proj-master/proj-master/home');
+            header('Location: project/home');
         }
     }
 ?>
@@ -72,7 +72,7 @@
                 <p><?=$error?></p>
             <?php endif; ?>
 
-            <form action="wd2/proj-master/proj-master/createseason/<?=$id?>/<?=$nextseason?>/<?=$title?>" method="post">
+            <form action="project/createseason/<?=$id?>/<?=$nextseason?>/<?=$title?>" method="post">
                 <fieldset>
                     <legend>New Season: <?=$nextseason?></legend>
                     <ol>

@@ -40,17 +40,17 @@
 <?php include ("templates/header.php") ?>
     <section>
         <?php if ($showPermission == 1): ?>
-            <p><a href="http://localhost:31337/wd2/proj-master/proj-master/signin/Register">Add New User</a></p>
+            <p><a href=project/signin/Register">Add New User</a></p>
         <?php endif; ?>
         <?php if ($showPermission == 1): ?>
             <table class="table">
                 <thead>
                     <tr>
-                        <th><a href=" http://localhost:31337/wd2/proj-master/proj-master/manageusers/Username">Username</a></th>
-                        <th><a href="http://localhost:31337/wd2/proj-master/proj-master/manageusers/FirstName">First Name</a></th>
-                        <th><a href="http://localhost:31337/wd2/proj-master/proj-master/manageusers/LastName">Last Name</a></th>
-                        <th><a href="http://localhost:31337/wd2/proj-master/proj-master/manageusers/DateCreated">Date Created</a></th>
-                        <th><a href="http://localhost:31337/wd2/proj-master/proj-master/manageusers/PermissionType">Permission Type</a></th>
+                        <th><a href="project/manageusers/Username">Username</a></th>
+                        <th><a href=project/manageusers/FirstName">First Name</a></th>
+                        <th><a href=project/manageusers/LastName">Last Name</a></th>
+                        <th><a href=project/manageusers/DateCreated">Date Created</a></th>
+                        <th><a href=project/manageusers/PermissionType">Permission Type</a></th>
                     </tr>
                 </thead>
                 <tbody>

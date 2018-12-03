@@ -65,7 +65,7 @@
         if (filter_var($id, FILTER_VALIDATE_INT) == false)
         {
             // Redirect user to another page
-            header('Location: wd2/proj-master/proj-master/');
+            header('Location: project/home');
             exit;
         
         }
@@ -94,7 +94,7 @@
 
             // Redirect user
             // Redirect user to another page
-            header('Location: /wd2/proj-master/proj-master/show/'.$id.'/'.$title);
+            header('Location: /project/homeshow/'.$id.'/'.$title);
 
             // Exit the script normally
             exit(0);
@@ -110,7 +110,7 @@
     if (filter_var($id, FILTER_VALIDATE_INT) == false)
     {
         // Redirect user to another page
-         header('Location: /wd2/proj-master/proj-master/index.php');
+         header('Location: /project/homeindex.php');
     }
 
     // Sanitize and validate the title

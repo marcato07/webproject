@@ -134,8 +134,8 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th><a href="/wd2/proj-master/proj-master/bookmarks/Name">Name</a></th>
-                    <th><a href="/wd2/proj-master/proj-master/bookmarks/LastUpdate">Updated on</a></th>
+                    <th><a href="/project/bookmarks/Name">Name</a></th>
+                    <th><a href="/project/bookmarks/LastUpdate">Updated on</a></th>
                     <th>My recommand points</th>
                     <th>average points</th>
                     <th>Management</th>
@@ -146,9 +146,9 @@
                         <p><?=$make?></p>
                     <?php endif ?> -->
                     <?php foreach ($search_results as $bookmark): ?>
-                        <form action="/wd2/proj-master/proj-master/bookmarks" method="post">
+                        <form action="/project/bookmarks" method="post">
                             <tr>
-                                <td><a href="/wd2/proj-master/proj-master/show/<?= $bookmark['ProductionId'] ?>/<?= $bookmark['Name'] ?>"><?= $bookmark['Name'] ?></a></td>
+                                <td><a href="/project/show/<?= $bookmark['ProductionId'] ?>/<?= $bookmark['Name'] ?>"><?= $bookmark['Name'] ?></a></td>
                                 <td><?= date("F j, Y", strtotime($bookmark['LastUpdate'])) ?></td>
                                 <td><input name="lastSeasonWatched" value="<?=$bookmark['LastSeasonWatched']?>" type="number"></td>
                                 <td><input name="lastEpisodeWatched" value="<?=$bookmark['LastEpisodeWatched']?>" type="number"></td>

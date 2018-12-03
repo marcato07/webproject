@@ -14,7 +14,7 @@
     if (filter_var($id, FILTER_VALIDATE_INT) == false)
     {
         // Redirect user to another page
-        header('Location: http://localhost:31337/wd2/proj-master/proj-master/index.php');
+        header('Location: project/index.php');
         exit;
     }
 
@@ -30,6 +30,6 @@
 
 
     // Redirect user to another page
-    header('Location: http://localhost:31337/wd2/proj-master/proj-master/index.php');
+    header('Location: project/index.php');
     exit;
 ?>

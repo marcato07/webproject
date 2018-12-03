@@ -26,7 +26,7 @@
         if ($id == null)
     {
         // Redirect user to another page
-        // header('Location: wd2/proj-master/proj-master/home');
+        // header('Location: project/home');
     }
 
         if ($command == "Delete" && $showPermission > 0){
@@ -41,7 +41,7 @@
             
             $statement->execute();
 
-            header('Location: /wd2/proj-master/proj-master/show/'.$id.'/'.$title);
+            header('Location: /project/show/'.$id.'/'.$title);
             
     
         } 
@@ -65,7 +65,7 @@
             
             $statement->execute();
 
-            header('Location: /wd2/proj-master/proj-master/show/'.$id.'/'.$title);
+            header('Location: /project/show/'.$id.'/'.$title);
             
     
         } 

@@ -28,7 +28,7 @@
         if ($id == null)
     {
         // Redirect user to another page
-        header('Location: wd2/proj-master/proj-master/home');
+        header('Location: project/home');
     }
 
        
@@ -40,7 +40,7 @@
         {
             if(!strlen($_POST['content'])>=1) {
               //waringing about length
-             // header("Location: /wd2/proj-master/proj-master/home");
+             // header("Location: /project/home");
 
             }
             else{
@@ -59,7 +59,7 @@
             
             $statement->execute();
 
-            header('Location: /wd2/proj-master/proj-master/show/'.$id.'/'.$title);
+            header('Location: /project/show/'.$id.'/'.$title);
             }
     
         } 

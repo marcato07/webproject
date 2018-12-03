@@ -26,8 +26,12 @@
     // Extract the data POSTed sanitizing user input
 
     $genre= filter_input(INPUT_POST,'genre',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $categoryid=filter_input(INPUT_POST, 'categoryid', FILTER_SANITIZE_NUMBER_INT);
     $command = filter_input(INPUT_POST, 'command', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $newgenre= filter_input(INPUT_POST,'title',FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+    // $categoryid;
+   
     if (strlen($genre) < 1)
     {
         $error = true;
@@ -50,13 +54,15 @@
             if (filter_var($genre, FILTER_SANITIZE_FULL_SPECIAL_CHARS) == false)
             {
                 // Redirect user to another page
-                header('Location: wd2/proj-master/proj-master/index.php');
-                exit;
+               // header('Location: project/index.php');
+                //exit;
             }
 
             // Update the production in the database
 
-           // $query = "UPDATE category SET genre = :genre, DateReleased = :releasedDate, Country = :country, Description = :description, genre=:genre WHERE ProductionId = $id";
+           $query = "UPDATE category SET genre = :genre WHERE categoryid = '$categoryid' ";
+
+           $genre = $newgenre;
         }
         elseif ($command == "Delete")
         {
@@ -64,23 +70,23 @@
             if (filter_var($genre, FILTER_SANITIZE_FULL_SPECIAL_CHARS) == false)
             {
                 // Redirect user to another page
-                //header('Location: wd2/proj-master/proj-master/index.php');
+                //header('Location: project/index.php');
                 //exit;
             }
 
             // Delete the production from the database
-            echo $genre;
-            $query = "DELETE FROM category WHERE genre = '$genre'";
+            $query = "DELETE FROM category WHERE genre= '$genre' AND categoryid= '$categoryid' " ;
         }
 
         $statement = $db->prepare($query);
+        //$statement->bindValue(':genre', $genre);
         $statement->bindValue(':genre', $genre);
 
         $statement->execute();
 
         // Redirect user to another page
-        header('Location: /wd2/proj-master/proj-master/category.php');
-        exit;
+        //header('Location: /project/category.php');
+        //exit;
     }
 
 ?>
@@ -90,6 +96,8 @@
         <h1>An error occured while processing your post.</h1>
         <p>Category name has to be 1 more character.</p>
 
-        <?=$genre?>
+        <?=$categoryid;?>
+                <?=$newgenre;?>
+
             </section>
 <?php include "templates/footer.php" ?>

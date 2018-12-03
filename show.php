@@ -21,7 +21,7 @@
     if ($id == null)
     {
         // Redirect user to another page
-        header('Location: wd2/proj-master/proj-master/home');
+        header('Location: project/home');
     }
 
     $title = filter_input(INPUT_GET, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -74,16 +74,16 @@
         <?php if ($showPermission == 1): ?>
             <nav>
                 <ul class="nav nav-tabs">
-                    <li><a href="wd2/proj-master/proj-master/edit/<?= $id ?>/<?= $prod['Name'] ?>">Edit</a></li>
-                    <li><a href="wd2/proj-master/proj-master/imageupload/<?= $id ?>/<?= $prod['Name'] ?>">Image Upload</a></li>
-                    <li><a href="wd2/proj-master/proj-master/image_delete_process/<?= $id ?>/<?= $prod['Image'] ?>" onclick="return confirm('Are you sure you wish to delete the image?')">Delete Image</a></li>
-                    <li><a href="wd2/proj-master/proj-master/delete_process/<?= $id ?>" onclick="return confirm('Are you sure you wish to delete the production?')">Delete Contents</a></li>
+                    <li><a href="project/edit/<?= $id ?>/<?= $prod['Name'] ?>">Edit</a></li>
+                    <li><a href="project/imageupload/<?= $id ?>/<?= $prod['Name'] ?>">Image Upload</a></li>
+                    <li><a href="project/image_delete_process/<?= $id ?>/<?= $prod['Image'] ?>" onclick="return confirm('Are you sure you wish to delete the image?')">Delete Image</a></li>
+                    <li><a href="project/delete_process/<?= $id ?>" onclick="return confirm('Are you sure you wish to delete the production?')">Delete Contents</a></li>
                 </ul>
             </nav>
         <?php endif; ?>
         <h1><?= $prod['Name'] ?></h1>
         <?php if ($prod['Image'] != ''): ?>
-            <div><img src="wd2/proj-master/proj-master/uploads\<?= $prod['Image'] ?>" alt="<?= $prod['Name'] ?>"></div>
+            <div><img src="project/uploads\<?= $prod['Image'] ?>" alt="<?= $prod['Name'] ?>"></div>
         <?php endif; ?>
         <p>Country: <?= $prod['Country'] ?></p>
         <p>Date Released: <?= date("F j, Y", strtotime($prod['DateReleased'])) ?></p>
@@ -101,7 +101,7 @@
                              <small> <?= date("F j, Y", strtotime($comment['CurrentDate'])) ?> </small>
                              
                             <!-- <?php if($comment['Username'] == $_SESSION['Username']): ?>
-                                 <form action="wd2/proj-master/proj-master/comment_delete.php" method="post">
+                                 <form action="project/comment_delete.php" method="post">
                                  <input type="submit" name="Edit" value="Edit"/>
                                 </form>
                             <?php endif; ?> -->
@@ -116,7 +116,7 @@
                         Writer: <?=$comment['Username']?> Comment: <?=$comment['content']?> 
                                     <small> <?= date("F j, Y", strtotime($comment['CurrentDate'])) ?> </small>
 
-                        <form action="wd2/proj-master/proj-master/comment_delete.php" method="post">
+                        <form action="project/comment_delete.php" method="post">
                         <input type="hidden" name="id" value="<?= $id?>"> 
                         <input type="hidden" name="title" value="<?= $title?>">
                         <input type="hidden" name="CurrentDate" value="<?= $comment['CurrentDate']?>">  
@@ -137,7 +137,7 @@
                 <?php endforeach; ?>
 
                 <?php if ($showPermission > 0): ?>
-                     <form action="wd2/proj-master/proj-master/comment.php" method="post">
+                     <form action="project/comment.php" method="post">
                             <fieldset>
                               <legend>New Comment</legend>
                                 <label for="content">Content</label>
@@ -152,7 +152,7 @@
                             </fieldset>
                           </form>
                 <?php else: ?>
-                    <p> <i>when you log on, you can write a comment! would you like to <a href="wd2/proj-master/proj-master/signin/sign-on">sign on</a>?</i> </p>  
+                    <p> <i>when you log on, you can write a comment! would you like to <a href="project/signin/sign-on">sign on</a>?</i> </p>  
                 <?php endif; ?>
 
             </ul> 
@@ -164,17 +164,17 @@
                     <li>
                         Season <?=$season['SeasonNum']?> (<?=$season['Year']?>): <?=$season['NumEpisodes']?> episodes
                         <?php if ($showPermission == 1): ?>
-                            <a href="/wd2/proj-master/proj-master/editseason/<?=$id?>/<?=$season['SeasonNum']?>/<?=$title?>">Edit</a>
+                            <a href="/project/editseason/<?=$id?>/<?=$season['SeasonNum']?>/<?=$title?>">Edit</a>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
                 <?php if ($showPermission == 1): ?>
-                    <a href="/wd2/proj-master/proj-master/createseason/<?=$id?>/<?=$nextSeason?>/<?=$title?>">Add new season</a>
+                    <a href="/project/createseason/<?=$id?>/<?=$nextSeason?>/<?=$title?>">Add new season</a>
                 <?php endif; ?>
             </ul>
         </div>
 
-        <form action="wd2/proj-master/proj-master/bookmarks.php" method="post">
+        <form action="project/bookmarks.php" method="post">
             <fieldset>
                 <input name="id" value="<?=$id?>" type="hidden">
                 <input name="title" value="<?=$title?>" type="hidden">

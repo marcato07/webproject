@@ -16,7 +16,7 @@
     $showPermission = getPermission();
 
 
-    $query ="SELECT genre
+    $query ="SELECT genre, categoryid
             FROM category";
     // prepare a PDOStatement object
     $statements = $db->prepare($query);
@@ -39,9 +39,11 @@
                             <label for="cgenre">Current genre</label>
                             
                             <?php foreach ($categories as $item): ?>
-                            <form action="wd2/proj-master/proj-master/processcategory.php" method="post">
+                            <form action="project/processcategory.php" method="post">
                                 <input name="title" id="title" value="<?=$item['genre']?>"/>
+                                <?=$item['categoryid']?>
                                 <input type="hidden" name="genre" value="<?=$item['genre']?>"> 
+                                <input type="hidden" name="categoryid" value="<?=$item['categoryid']?>"> 
                                 <input type="submit" name="command" value="Edit" onclick="return confirm('Are you sure you wish to Edit this category?')" />      
                                 <input type="submit" name="command" value="Delete" onclick="return confirm('Are you sure you wish to Delete this category?')" />  
                             </form>
@@ -50,7 +52,7 @@
                         </li>
 
                         <li>
-                            <form action="wd2/proj-master/proj-master/processcategory.php" method="post">
+                            <form action="project/processcategory.php" method="post">
                             <label for="genre">Add New Genre</label>
                             <input id="genre" name="genre" type="text">
                             <input name="command" value="Create" type="submit">

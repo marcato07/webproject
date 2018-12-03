@@ -65,7 +65,7 @@
             }
 
             // Redirect user to another page
-            header('Location:/wd2/proj-master/proj-master/show/' . $id . '/' . $title);
+            header('Location:/project/show/' . $id . '/' . $title);
         }
     }
     else
@@ -98,7 +98,7 @@
                 <p><?=$error?></p>
             <?php endif; ?>
 
-            <form action="wd2/proj-master/proj-master/editseason/<?=$id?>/<?=$season?>/<?=$title?>" method="post">
+            <form action="project/editseason/<?=$id?>/<?=$season?>/<?=$title?>" method="post">
                 <fieldset>
                     <legend>Season: <?=$season?></legend>
                     <ol>

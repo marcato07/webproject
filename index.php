@@ -69,20 +69,6 @@
 ?>
 
 <?php include "templates/header.php" ?>
-<!-- <li>
-    <div id="sorting_form">
-        <form method="get" action="">
-        <label for="sorting">sorting</label>
-            <select id="sorting" name="sorting">
-                <option value="">All</option>
-                <option value="Animation">Animation</option>
-                <option value="Drama">Drama</option>
-                <option value="Family">Family</option>
-            </select>
-        <input class="btn btn-info" type="submit" name="submit" value="sorting" />
-        </form>
-    </div>
-</li> -->
 
 <?php include "search.php";
     //now execute the completed query
@@ -96,16 +82,16 @@
 
     <section>
         <?php if ($showPermission == 1): ?>
-            <p><a href="wd2/proj-master/proj-master/create_production.php">Add New Production</a></p>
-            <p><a href="wd2/proj-master/proj-master/category.php">Add New Category</a></p>
+            <p><a href="project/create_production.php">Add New Production</a></p>
+            <p><a href="project/category.php">Add New Category</a></p>
         <?php endif ?>
         <table class="table">
             <thead>
                 <tr>
-                    <th><a href="wd2/proj-master/proj-master/home/Name">Name</a></th>
-                    <th><a href="wd2/proj-master/proj-master/home/DateReleased">Date Released</a></th>
-                    <th><a href="wd2/proj-master/proj-master/home/Country">Country</a></th>
-                    <th><a href="wd2/proj-master/proj-master/home/LastUpdate">Updated on</a></th>
+                    <th><a href="project/home/Name">Name</a></th>
+                    <th><a href="project/home/DateReleased">Date Released</a></th>
+                    <th><a href="project/home/Country">Country</a></th>
+                    <th><a href="project/home/LastUpdate">Updated on</a></th>
                     <th><a href=""> Genre</a></th>
                 </tr>
             </thead>
@@ -115,7 +101,7 @@
                 <?php endif ?> -->
                 <?php foreach ($search_results as $prod): ?>
                 <tr>
-                    <td><a href="wd2/proj-master/proj-master/show/<?= $prod['ProductionId'] ?>/<?= $prod['Name'] ?>"><?= $prod['Name'] ?></a></td>
+                    <td><a href="project/show/<?= $prod['ProductionId'] ?>/<?= $prod['Name'] ?>"><?= $prod['Name'] ?></a></td>
                     <td><?= date("F j, Y", strtotime($prod['DateReleased'])) ?></td>
                     <td><?= $prod['Country'] ?></td>
                     <td><?= date("F j, Y", strtotime($prod['LastUpdate'])) ?></td>

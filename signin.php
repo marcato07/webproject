@@ -20,7 +20,7 @@
 
 <?php include ("templates/header.php") ?>
     <section>
-        <form action="http://localhost:31337/wd2/proj-master/proj-master/authenticate.php" method="post">
+        <form action="project/authenticate.php" method="post">
             <fieldset>
                 <?php if ($type == 'Register'): ?>
                     <legend>Register</legend>

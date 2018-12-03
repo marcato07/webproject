@@ -45,7 +45,7 @@
 ?>
 
     <div id="searching_form">
-        <form method="post" action=""  >
+        <form method="post">
         	<!-- <label for="sorting">sorting</label> -->
             <select id="sorting" name="sorting">
                 <option value="">All</option>

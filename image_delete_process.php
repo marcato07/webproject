@@ -13,7 +13,7 @@
     if (filter_var($id, FILTER_VALIDATE_INT) == false)
     {
         // Redirect user to another page
-        header('Location: wd2/proj-master/proj-master/home');
+        header('Location: project/home');
     }
 
     // Sanitize and validate the inputs
@@ -30,7 +30,7 @@
     unlink($filePath);
 
     // Redirect user to another page
-   // header('Location: wd2/proj-master/proj-master/show/'.$id.'/'.$title);
-    header('Location: /wd2/proj-master/proj-master/show/'.$id.'/'.$title);
+   // header('Location: project/show/'.$id.'/'.$title);
+    header('Location: /project/show/'.$id.'/'.$title);
     exit;
 ?>

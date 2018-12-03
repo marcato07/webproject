@@ -51,7 +51,7 @@
 <?php include ("templates/header.php") ?>
     <section>
         <?php if ($showPermission == 1): ?>
-            <form action="wd2/proj-master/proj-master/process" method="post">
+            <form action="project/process" method="post">
                 <fieldset>
                     <legend>Update Production</legend>
                     <p>

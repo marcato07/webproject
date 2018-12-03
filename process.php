@@ -78,7 +78,7 @@
             if (filter_var($id, FILTER_VALIDATE_INT) == false)
             {
                 // Redirect user to another page
-                header('Location: wd2/proj-master/proj-master/index.php');
+                header('Location: project/index.php');
                 exit;
             }
 
@@ -96,7 +96,7 @@
         $statement->execute();
 
         // Redirect user to another page
-       header('Location: /wd2/proj-master/proj-master/home');
+       header('Location: /project/home');
         exit;
     }
 
